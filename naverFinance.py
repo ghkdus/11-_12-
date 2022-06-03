@@ -15,3 +15,11 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome('chromedriver', options=options)
+
+url = "https://finance.naver.com/news/" 
+driver.get(url)
+ 
+update = driver.find_element_by_css_selector(".main_news")
+
+top6 = update.text
+top = list(map(str, top6.split('\n')))
