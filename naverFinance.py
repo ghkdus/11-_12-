@@ -23,3 +23,13 @@ update = driver.find_element_by_css_selector(".main_news")
 
 top6 = update.text
 top = list(map(str, top6.split('\n')))
+
+#top6 뉴스 전체 출력 CSV 파일 만들기
+for i in range(6):
+  line=f'{top[i]}'
+  print(line)
+
+with open('top6.csv', 'w') as fp:
+  for i in range(6):
+    line=f'{top[i]}'
+    fp.write(line)
